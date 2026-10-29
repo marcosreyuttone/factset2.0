@@ -143,27 +143,125 @@ Private Sub SetEdge(ByVal rng As Range, ByVal edge As XlBordersIndex, ByVal edge
     End With
 End Sub
 
-Public Sub ToggleCenterAcross()
+Public Sub CycleBinary(): CycleFormats "binary", BinaryFormats(): End Sub
+
+Public Sub CycleCenter()
     If Not HasRangeSelection() Then Exit Sub
     On Error GoTo Fail
-    If ActiveCell.HorizontalAlignment = xlCenterAcrossSelection Then
-        Selection.HorizontalAlignment = xlGeneral
+    Dim items As Variant
+    items = Array(xlCenter, xlCenterAcrossSelection, xlGeneral)
+    Selection.HorizontalAlignment = items(NextIndex("center", ActiveCell.HorizontalAlignment, items))
+    Exit Sub
+Fail:
+    Notify Err.Description
+End Sub
+
+Public Sub CycleHorizontal()
+    If Not HasRangeSelection() Then Exit Sub
+    On Error GoTo Fail
+    Dim items As Variant
+    items = Array(xlLeft, xlCenter, xlRight, xlGeneral)
+    Selection.HorizontalAlignment = items(NextIndex("horizontal", ActiveCell.HorizontalAlignment, items))
+    Exit Sub
+Fail:
+    Notify Err.Description
+End Sub
+
+Public Sub CycleVertical()
+    If Not HasRangeSelection() Then Exit Sub
+    On Error GoTo Fail
+    Dim items As Variant
+    items = Array(xlTop, xlCenter, xlBottom)
+    Selection.VerticalAlignment = items(NextIndex("vertical", ActiveCell.VerticalAlignment, items))
+    Exit Sub
+Fail:
+    Notify Err.Description
+End Sub
+
+Public Sub CycleUnderline()
+    If Not HasRangeSelection() Then Exit Sub
+    On Error GoTo Fail
+    Dim items As Variant
+    items = Array(xlUnderlineStyleSingle, xlUnderlineStyleDouble, xlUnderlineStyleSingleAccounting, _
+        xlUnderlineStyleDoubleAccounting, xlUnderlineStyleNone)
+    Selection.Font.Underline = items(NextIndex("underline", ActiveCell.Font.Underline, items))
+    Exit Sub
+Fail:
+    Notify Err.Description
+End Sub
+
+Public Sub IncreaseFontSize(): ChangeFontSize 1: End Sub
+Public Sub DecreaseFontSize(): ChangeFontSize -1: End Sub
+
+Private Sub ChangeFontSize(ByVal delta As Long)
+    If Not HasRangeSelection() Then Exit Sub
+    On Error GoTo Fail
+    Dim size As Double
+    size = ActiveCell.Font.Size + delta
+    If size >= 1 Then Selection.Font.Size = size
+    Exit Sub
+Fail:
+    Notify Err.Description
+End Sub
+
+Public Sub ToggleWrapText()
+    If Not HasRangeSelection() Then Exit Sub
+    On Error GoTo Fail
+    Selection.WrapText = Not ActiveCell.WrapText
+    Exit Sub
+Fail:
+    Notify Err.Description
+End Sub
+
+' Thin line along the top of the selection, i.e. above a total row.
+Public Sub ToggleSumBar()
+    If Not HasRangeSelection() Then Exit Sub
+    On Error GoTo Fail
+    With Selection.Borders(xlEdgeTop)
+        If .LineStyle = xlContinuous Then
+            .LineStyle = xlNone
+        Else
+            .LineStyle = xlContinuous
+            .Weight = xlThin
+        End If
+    End With
+    Exit Sub
+Fail:
+    Notify Err.Description
+End Sub
+
+Public Sub CycleTabColor()
+    On Error GoTo Fail
+    Dim colors As Variant, current As Long, c As Long
+    colors = TabColors()
+    If ActiveSheet.Tab.ColorIndex = xlColorIndexNone Then current = -1 Else current = ActiveSheet.Tab.Color
+    c = colors(NextIndex("tab", current, colors))
+    If c = -1 Then
+        ActiveSheet.Tab.ColorIndex = xlColorIndexNone
     Else
-        Selection.HorizontalAlignment = xlCenterAcrossSelection
+        ActiveSheet.Tab.Color = c
     End If
     Exit Sub
 Fail:
     Notify Err.Description
 End Sub
 
-' Colours every cell in the selection by what it contains:
-' hardcoded number = blue, formula = black, other-sheet link = green, other-workbook link = red.
+' Colours every cell by what it contains: hardcoded number = blue, formula = black,
+' other-sheet link = green, other-workbook link = red.
 Public Sub AutoColor()
     If Not HasRangeSelection() Then Exit Sub
-    On Error GoTo Fail
-    Dim rng As Range, c As Range, re As Object
-    Set rng = Intersect(Selection, ActiveSheet.UsedRange)
+    AutoColorRange Intersect(Selection, ActiveSheet.UsedRange)
+End Sub
+
+Public Sub AutoColorSheet()
+    If TypeName(ActiveSheet) <> "Worksheet" Then Exit Sub
+    AutoColorRange ActiveSheet.UsedRange
+End Sub
+
+Private Sub AutoColorRange(ByVal rng As Range)
     If rng Is Nothing Then Exit Sub
+    On Error GoTo Fail
+    Dim c As Range, re As Object
     Set re = CreateObject("VBScript.RegExp")
     re.Pattern = "\[[^\]]+\.xl\w*\]"
     Application.ScreenUpdating = False
