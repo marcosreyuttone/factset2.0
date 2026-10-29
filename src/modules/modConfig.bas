@@ -35,7 +35,8 @@ Public Function Bindings() As Collection
     AddBinding c, "^+,", "IncreaseDecimal", "Increase decimals"
     AddBinding c, "^+.", "DecreaseDecimal", "Decrease decimals"
     ' Cell style
-    AddBinding c, "^+9", "CycleFontColor", "Font colour cycle (blue / black / green / red)"
+    AddBinding c, "^+;|^:", "CycleFontColor", "Font colour cycle (blue / black / green / red)"
+    AddBinding c, "^+9", "CycleFontColor", "Font colour cycle (alternative key)"
     AddBinding c, "^+k", "CycleFillColor", "Cell back colour cycle"
     AddBinding c, "^+b", "CycleBorder", "Border cycle"
     AddBinding c, "^+s", "ToggleSumBar", "Sum bar (line above a total)"

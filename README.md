@@ -30,7 +30,7 @@ Keys follow FactSet's Excel add-in wherever FactSet has the same feature. Every 
 | Ctrl+Shift+Y | Binary cycle: Yes/No › True/False › On/Off › General |
 | Ctrl+Shift+, / . | Increase / decrease decimals (also works on General cells) |
 | **Cell style** | |
-| Ctrl+Shift+9 | Font colour cycle: blue › black › green › red |
+| Ctrl+: (Ctrl+Shift+;) or Ctrl+Shift+9 | Font colour cycle: blue › black › green › red |
 | Ctrl+Shift+K | Cell back colour cycle: yellow › grey › light blue › none |
 | Ctrl+Shift+B | Border cycle: bottom › top › total (top + double bottom) › outline › none |
 | Ctrl+Shift+S | Sum bar: thin line across the top of the selection (on/off) |
@@ -92,7 +92,7 @@ Key codes are `^` for Ctrl, `+` for Shift and `%` for Alt. For example, `"^+1"` 
 
 ## Things to know
 
-- **These shortcuts replace some of Excel's own.** For example, Ctrl+Shift+1 normally applies Excel's number format, Ctrl+Shift+V pastes values (Excel 365), Ctrl+Shift+F opens Format Cells, Ctrl+Shift+U expands the formula bar, Ctrl+Shift+[ / ] select all precedents / dependents, Ctrl+Shift+8 selects the current region and Ctrl+Shift+9 unhides rows. Use the **Shortcuts** toggle on the ribbon to turn them all off and get Excel's back. The setting is remembered.
+- **These shortcuts replace some of Excel's own.** For example, Ctrl+Shift+1 normally applies Excel's number format, Ctrl+: inserts the current time, Ctrl+Shift+V pastes values (Excel 365), Ctrl+Shift+F opens Format Cells, Ctrl+Shift+U expands the formula bar, Ctrl+Shift+[ / ] select all precedents / dependents, Ctrl+Shift+8 selects the current region and Ctrl+Shift+9 unhides rows. Use the **Shortcuts** toggle on the ribbon to turn them all off and get Excel's back. The setting is remembered.
 - **Macros clear Excel's undo history.** You can't press Ctrl+Z after running one of these actions. This is how Excel macros work, and FactSet's and Macabacus's add-ins behave the same way.
 - Shortcuts don't fire while you are typing in a cell.
 - Ctrl+Alt is the same as AltGr on many non-US keyboards. If Ctrl+Alt+A or Ctrl+Alt+S clash with a character you type, change them in `modConfig.bas`.
