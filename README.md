@@ -31,8 +31,8 @@ The **FS2** tab appears and the shortcuts are active. You only need step 3 once.
 | Ctrl+Alt+Shift+C | Center across selection (on/off) |
 | Ctrl+Alt+Shift+A | Auto-colour: inputs blue, formulas black, other-sheet links green, other-workbook links red |
 | **Auditing** | |
-| Ctrl+Alt+Shift+P | Trace precedents navigator |
-| Ctrl+Alt+Shift+D | Trace dependents navigator |
+| Ctrl+Shift+[ (or Ctrl+Alt+Shift+P) | Trace precedents navigator |
+| Ctrl+Shift+] (or Ctrl+Alt+Shift+D) | Trace dependents navigator |
 | Ctrl+Alt+Shift+H | Select formulas with hardcoded numbers (whole sheet if one cell is selected) |
 | Ctrl+Alt+Shift+X | Clear trace arrows |
 | **Formulas** | |
@@ -69,7 +69,7 @@ Key codes are `^` for Ctrl, `+` for Shift and `%` for Alt. For example, `"^+1"` 
 
 ## Things to know
 
-- **These shortcuts replace some of Excel's own.** For example, Ctrl+Shift+1 normally applies Excel's number format, Ctrl+Shift+8 selects the current region and Ctrl+Shift+9 unhides rows. Use the **Shortcuts** toggle on the ribbon to turn them all off and get Excel's back. The setting is remembered.
+- **These shortcuts replace some of Excel's own.** For example, Ctrl+Shift+1 normally applies Excel's number format, Ctrl+Shift+[ / ] select all precedents / dependents, Ctrl+Shift+8 selects the current region and Ctrl+Shift+9 unhides rows. Use the **Shortcuts** toggle on the ribbon to turn them all off and get Excel's back. The setting is remembered.
 - **Macros clear Excel's undo history.** You can't press Ctrl+Z after running one of these actions. This is how Excel macros work, and FactSet's and Macabacus's add-ins behave the same way.
 - Shortcuts don't fire while you are typing in a cell.
 - Ctrl+Alt is the same as AltGr on many non-US keyboards. That's why most of the bindings use Ctrl+Alt+**Shift**.

@@ -36,8 +36,10 @@ Public Function Bindings() As Collection
     AddBinding c, "^%+c", "ToggleCenterAcross", "Center across selection"
     AddBinding c, "^%+a", "AutoColor", "Auto-colour selection (inputs / formulas / links)"
     ' Auditing
-    AddBinding c, "^%+p", "TracePrecedents", "Trace precedents (navigator)"
-    AddBinding c, "^%+d", "TraceDependents", "Trace dependents (navigator)"
+    AddBinding c, "^+{[}", "TracePrecedents", "Trace precedents (navigator)"
+    AddBinding c, "^+{]}", "TraceDependents", "Trace dependents (navigator)"
+    AddBinding c, "^%+p", "TracePrecedents", "Trace precedents (navigator, alternative key)"
+    AddBinding c, "^%+d", "TraceDependents", "Trace dependents (navigator, alternative key)"
     AddBinding c, "^%+h", "SelectHardcodes", "Select formulas with hardcoded numbers"
     AddBinding c, "^%+x", "ClearArrows", "Clear trace arrows"
     ' Formula tools
