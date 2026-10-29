@@ -5,7 +5,8 @@ Option Explicit
 '
 ' OnKey codes:  ^ = Ctrl   + = Shift   % = Alt
 ' Examples:     "^+1" = Ctrl+Shift+1    "^%+p" = Ctrl+Alt+Shift+P
-' Special keys go in braces, e.g. "^+{F4}".
+' Special keys go in braces, e.g. "^+{F4}". Several spellings of the same key can be
+' given separated by "|"; each one is registered and the first is shown in the list.
 ' ---------------------------------------------------------------------------
 
 Public Const APP_NAME As String = "FS2Tools"
@@ -57,8 +58,8 @@ Public Function Bindings() As Collection
     AddBinding c, "^%+e", "WrapIfError", "Wrap formulas in IFERROR"
     AddBinding c, "^%+v", "PasteValues", "Paste values"
     ' Auditing
-    AddBinding c, "^+{[}", "TracePrecedents", "Trace precedents (navigator)"
-    AddBinding c, "^+{]}", "TraceDependents", "Trace dependents (navigator)"
+    AddBinding c, "^+{[}|^+[|^{{}", "TracePrecedents", "Trace precedents (navigator)"
+    AddBinding c, "^+{]}|^+]|^{}}", "TraceDependents", "Trace dependents (navigator)"
     AddBinding c, "^%+p", "TracePrecedents", "Trace precedents (navigator, alternative key)"
     AddBinding c, "^%+d", "TraceDependents", "Trace dependents (navigator, alternative key)"
     AddBinding c, "^%+h", "SelectHardcodes", "Select formulas with hardcoded numbers"
@@ -110,7 +111,7 @@ Public Function MultipleFormats() As Variant
 End Function
 
 Public Function DateFormats() As Variant
-    DateFormats = Array("m/d/yyyy", "mmm-yy", "d-mmm-yy", "yyyy", """FY""yy")
+    DateFormats = Array("mmm-dd-yyyy", "dd-mmm-yy", "mmm-yy", "m/d/yyyy", "yyyy", """FY""yy")
 End Function
 
 Public Function FontColors() As Variant

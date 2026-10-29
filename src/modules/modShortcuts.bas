@@ -13,22 +13,29 @@ End Sub
 Public Sub RegisterShortcuts()
     Dim b As Variant
     On Error Resume Next
+    Dim k As Variant
     For Each b In Bindings()
-        Application.OnKey b(0), "'" & ThisWorkbook.Name & "'!" & b(1)
+        For Each k In Split(b(0), "|")
+            Application.OnKey CStr(k), "'" & ThisWorkbook.Name & "'!" & b(1)
+        Next k
     Next b
 End Sub
 
 Public Sub UnregisterShortcuts()
     Dim b As Variant
     On Error Resume Next
+    Dim k As Variant
     For Each b In Bindings()
-        Application.OnKey b(0)
+        For Each k In Split(b(0), "|")
+            Application.OnKey CStr(k)
+        Next k
     Next b
 End Sub
 
 ' "^%+a" -> "Ctrl+Alt+Shift+A"
 Public Function KeyLabel(ByVal key As String) As String
     Dim i As Long, s As String
+    key = Split(key, "|")(0)
     For i = 1 To Len(key)
         Select Case Mid$(key, i, 1)
             Case "^": s = s & "Ctrl+"

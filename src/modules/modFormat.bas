@@ -60,8 +60,7 @@ Private Sub ChangeDecimals(ByVal increase As Boolean)
     Set re = CreateObject("VBScript.RegExp")
     re.Global = True
     If fmt = "General" Then
-        If Not increase Then Exit Sub
-        fmt = "#,##0.0"
+        fmt = GeneralToFixed(ActiveCell.Value2, IIf(increase, 1, -1))
     ElseIf increase Then
         If InStr(fmt, ".") > 0 Then
             re.Pattern = "\.(?=[0#])"
@@ -81,6 +80,22 @@ Private Sub ChangeDecimals(ByVal increase As Boolean)
 Fail:
     Notify Err.Description
 End Sub
+
+' A General cell shows as many decimals as its value has; start from that.
+Private Function GeneralToFixed(ByVal v As Variant, ByVal delta As Long) As String
+    Dim shown As Long, text As String, pos As Long
+    If VarType(v) = vbDouble Then
+        text = CStr(Abs(v))   ' uses the Windows decimal separator, "." or ","
+        pos = InStr(text, ".")
+        If pos = 0 Then pos = InStr(text, ",")
+        If pos > 0 And InStr(text, "E") = 0 Then shown = Len(text) - pos
+    End If
+    shown = shown + delta
+    If shown < 0 Then shown = 0
+    If shown > 10 Then shown = 10
+    GeneralToFixed = "#,##0"
+    If shown > 0 Then GeneralToFixed = GeneralToFixed & "." & String(shown, "0")
+End Function
 
 Public Sub CycleFontColor()
     If Not HasRangeSelection() Then Exit Sub

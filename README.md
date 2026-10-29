@@ -26,9 +26,9 @@ Keys follow FactSet's Excel add-in wherever FactSet has the same feature. Every 
 | Ctrl+Shift+4 | Currency cycle: `$#,##0` › `$#,##0.0` › `$#,##0.00` |
 | Ctrl+Shift+5 | Percent cycle: `0.0%` › `0.00%` › `0%` |
 | Ctrl+Shift+8 | Multiples cycle: `0.0x` › `0.00x` › `0x` |
-| Ctrl+Shift+' (or Ctrl+Shift+3) | Date cycle: `m/d/yyyy` › `mmm-yy` › `d-mmm-yy` › `yyyy` › `FYyy` |
+| Ctrl+Shift+3 (or Ctrl+Shift+') | Date cycle: `mmm-dd-yyyy` (Jun-11-2026) › `dd-mmm-yy` › `mmm-yy` › `m/d/yyyy` › `yyyy` › `FYyy` |
 | Ctrl+Shift+Y | Binary cycle: Yes/No › True/False › On/Off › General |
-| Ctrl+Shift+, / . | Increase / decrease decimals |
+| Ctrl+Shift+, / . | Increase / decrease decimals (also works on General cells) |
 | **Cell style** | |
 | Ctrl+Shift+9 | Font colour cycle: blue › black › green › red |
 | Ctrl+Shift+K | Cell back colour cycle: yellow › grey › light blue › none |
@@ -72,7 +72,7 @@ Each cycle steps forward each time you press it again on the same selection.
 
 ### The trace navigator
 
-The precedents/dependents window lists every linked cell, including cells on other sheets and in other open workbooks. For each one it shows the sheet, address, value and formula. Moving through the list jumps to each cell so you can see it in place.
+The precedents/dependents window shows a table of every linked cell, including cells on other sheets and in other open workbooks. For each one it shows the sheet, address, value and formula. Moving through the list jumps to each cell so you can see it in place.
 
 | Key | Action |
 |---|---|
