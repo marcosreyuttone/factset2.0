@@ -26,7 +26,7 @@ Keys follow FactSet's Excel add-in wherever FactSet has the same feature. Every 
 | Ctrl+Shift+4 | Currency cycle: `$#,##0` › `$#,##0.0` › `$#,##0.00` |
 | Ctrl+Shift+5 | Percent cycle: `0.0%` › `0.00%` › `0%` |
 | Ctrl+Shift+8 | Multiples cycle: `0.0x` › `0.00x` › `0x` |
-| Ctrl+Shift+3 (or Ctrl+Shift+') | Date cycle: `mmm-dd-yyyy` (Jun-11-2026) › `dd-mmm-yy` › `mmm-yy` › `m/d/yyyy` › `yyyy` › `FYyy` |
+| Ctrl+Shift+3 (or Ctrl+Shift+') | Date cycle: `dd-mmm-yyyy` (11-Jun-2026) › `mmm-dd-yyyy` (Jun-11-2026) › `dd-mmm-yy` › `mmm-yy` › `m/d/yyyy` › `yyyy` › `FYyy` |
 | Ctrl+Shift+Y | Binary cycle: Yes/No › True/False › On/Off › General |
 | Ctrl+Shift+, / . | Increase / decrease decimals (also works on General cells) |
 | **Cell style** | |

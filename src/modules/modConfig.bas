@@ -111,7 +111,7 @@ Public Function MultipleFormats() As Variant
 End Function
 
 Public Function DateFormats() As Variant
-    DateFormats = Array("mmm-dd-yyyy", "dd-mmm-yy", "mmm-yy", "m/d/yyyy", "yyyy", """FY""yy")
+    DateFormats = Array("dd-mmm-yyyy", "mmm-dd-yyyy", "dd-mmm-yy", "mmm-yy", "m/d/yyyy", "yyyy", """FY""yy")
 End Function
 
 Public Function FontColors() As Variant
