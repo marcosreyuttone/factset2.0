@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ribbon tab. Each button's tag is the macro it runs (see modRibbon). -->
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="RibbonOnLoad">
+  <ribbon>
+    <tabs>
+      <tab id="tabFS2" label="FS2">
+        <group id="grpNumber" label="Number">
+          <button id="btnCycleNumber" label="Number" imageMso="CommaStyle" size="large" tag="CycleNumber" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnCycleCurrency" label="Currency" imageMso="AccountingFormat" size="normal" tag="CycleCurrency" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnCyclePercent" label="Percent" imageMso="PercentStyle" size="normal" tag="CyclePercent" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnCycleMultiple" label="Multiple" imageMso="NumberFormatsDialog" size="normal" tag="CycleMultiple" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnCycleDate" label="Date" imageMso="DateAndTimeInsert" size="normal" tag="CycleDate" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnIncreaseDecimal" label="Decimals +" imageMso="DecimalsIncrease" size="normal" tag="IncreaseDecimal" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnDecreaseDecimal" label="Decimals -" imageMso="DecimalsDecrease" size="normal" tag="DecreaseDecimal" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+        </group>
+        <group id="grpStyle" label="Style">
+          <button id="btnAutoColor" label="Auto-colour" imageMso="FormatPainter" size="large" tag="AutoColor" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnCycleFontColor" label="Font colour" imageMso="FontColorPicker" size="normal" tag="CycleFontColor" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnCycleFillColor" label="Fill" imageMso="CellFillColorPicker" size="normal" tag="CycleFillColor" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnCycleBorder" label="Border" imageMso="BordersAll" size="normal" tag="CycleBorder" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnToggleCenterAcross" label="Center across" imageMso="AlignCenter" size="normal" tag="ToggleCenterAcross" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+        </group>
+        <group id="grpAudit" label="Auditing">
+          <button id="btnTracePrecedents" label="Precedents" imageMso="TracePrecedents" size="large" tag="TracePrecedents" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnTraceDependents" label="Dependents" imageMso="TraceDependents" size="large" tag="TraceDependents" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnSelectHardcodes" label="Find hardcodes" imageMso="FindDialog" size="normal" tag="SelectHardcodes" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnClearArrows" label="Clear arrows" imageMso="TraceRemoveAllArrows" size="normal" tag="ClearArrows" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+        </group>
+        <group id="grpFormula" label="Formulas">
+          <button id="btnCycleAnchoring" label="Anchor $" imageMso="FunctionWizard" size="normal" tag="CycleAnchoring" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnWrapIfError" label="IFERROR" imageMso="FunctionWizard" size="normal" tag="WrapIfError" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnPasteValues" label="Paste values" imageMso="PasteValues" size="normal" tag="PasteValues" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+        </group>
+        <group id="grpView" label="View">
+          <button id="btnAutofitColumns" label="Autofit" imageMso="ColumnWidth" size="normal" tag="AutofitColumns" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnToggleGridlines" label="Gridlines" imageMso="ViewGridlines" size="normal" tag="ToggleGridlines" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+          <button id="btnToggleFreezePanes" label="Freeze panes" imageMso="ViewFreezePanesGallery" size="normal" tag="ToggleFreezePanes" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+        </group>
+        <group id="grpSettings" label="Settings">
+          <toggleButton id="tglShortcuts" label="Shortcuts" imageMso="AdpPrimaryKey" size="large" getPressed="ShortcutsGetPressed" onAction="ShortcutsToggle" supertip="Turn the FS2 keyboard shortcuts on or off. When off, Excel's own shortcuts work again."/>
+          <button id="btnShowShortcuts" label="Shortcut list" imageMso="Help" size="large" tag="ShowShortcuts" onAction="RibbonAction" getSupertip="RibbonSupertip"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

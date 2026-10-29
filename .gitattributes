@@ -1,0 +1,6 @@
+# The VBA editor and Windows tooling expect CRLF line endings.
+*.bas text eol=crlf
+*.vba text eol=crlf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.xml text eol=crlf
